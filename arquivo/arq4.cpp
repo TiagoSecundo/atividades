@@ -10,8 +10,8 @@ int main() {
 
     int vogais = 0, consoantes = 0, caracteres_especiais = 0;
 
-    ifstream arquivo;
-    arquivo.open("cores.txt");
+    ifstream arquivo;//chamar arquivo
+    arquivo.open("cores.txt");//nomear o arquivo em texto
 
     if (!arquivo.is_open()) {
         cerr << "ERRO! Não foi possível abrir o arquivo.\n";
@@ -20,7 +20,7 @@ int main() {
         cout << "Arquivo aberto com sucesso!\n";
     }
 
-    while (!arquivo.eof()) {
+    while (!arquivo.eof()) {//contagem das letras
         char letra;
         arquivo >> letra;
 
@@ -33,7 +33,7 @@ int main() {
         }
     }
 
-    arquivo.close();
+    arquivo.close();//fecahr arquivo
 
     cout << "\nRESULTADO\n\n";
     cout << "Vogais: " << vogais << endl;
