@@ -8,13 +8,13 @@ int main() {
     UINT CPAGE_UTF8 = 65001;
     SetConsoleOutputCP(CPAGE_UTF8);
 
-    ifstream arquivo1, arquivo2;
-    ofstream arquivo3;
+    ifstream arquivo1, arquivo2;//declara o nome dos arquivos e usar ifstream para ler no txt
+    ofstream arquivo3;//mostrar na tela do txt
 
-    arquivo1.open("letras.txt");
+    arquivo1.open("letras.txt"); //abrir o arquivo 
     arquivo2.open("numeros.txt");
 
-    if (!arquivo1.is_open() || !arquivo2.is_open()) {
+    if (!arquivo1.is_open() || !arquivo2.is_open()) {//testar se a abertura do arquivo
         cerr << "ERRO! Não foi possível abrir um dos arquivos.\n";
         arquivo1.clear();
         arquivo2.clear();
@@ -31,7 +31,7 @@ int main() {
 
     string conteudo;
 
-    while (!arquivo1.eof()) {
+    while (!arquivo1.eof()) {//contaegm dos argumentos 
         arquivo1 >> conteudo;
         arquivo3 << conteudo << endl;
     }
@@ -41,7 +41,7 @@ int main() {
         arquivo3 << conteudo << endl;
     }
 
-    arquivo1.close();
+    arquivo1.close();//fechar arquivo 
     arquivo2.close();
     arquivo3.close();
 
