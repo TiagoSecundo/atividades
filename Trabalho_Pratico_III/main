@@ -1,0 +1,53 @@
+#include <iostream>
+#include "funcoes.cpp"
+#include "cabecario.hpp"
+
+using namespace std;
+
+int main()
+{
+    TipoFila fila;
+    Triagem Respostas_Triagem;
+    UPA dados_upa;
+    InicializaFila(&fila);
+    int op1, op2 = 0;
+
+    do
+    {
+        menu();
+        cin >> op1;
+
+        switch (op1) // usado para identificar qual opcao o usuario deseja.
+        {
+        case 1:
+            do
+            {
+                Protocolo_Manchester(&Respostas_Triagem);
+                Cadastra_Paciente(&fila, Respostas_Triagem);
+                cout << "Ja encaminhado para o medico " << endl;
+                cout << "Para cadastrar mais alguma triagem digite (1): " << endl;
+                cin >> op2;
+                dados_upa.quantidade_medicos++;
+            } while (op2 == 1);
+            break;
+        case 2:
+            Cadastra_Medico(dados_upa.dados_medicos);
+            break;
+        case 3:
+            Medico_livre(dados_upa.dados_medicos);
+            break;
+        case 4:
+            Atualiza_Medico(&fila, dados_upa.dados_medicos);
+            break;
+        case 5:
+            cout << "Quantidade de passientes atentidos do dia: " << dados_upa.quantidade_medicos << endl
+                 << endl;
+            break;
+        default:
+            break;
+        }
+    } while (op1 != 6);
+
+    system("cls");
+    return 0;
+}
